@@ -4,19 +4,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import colors.ColorsDFT;
+import frame.FrameDefault;
 
-public class Test {
+public class Test extends FrameDefault{
+	
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("Test");
-		frame.setVisible(true);
-		frame.setPreferredSize(new Dimension(800, 600));
-		
-		JPanel contentPane = new JPanel();
-		contentPane.setPreferredSize(new Dimension(800, 600));
-		contentPane.setBackground(ColorsDFT.COLOR_B_GREEN);
-		
-		frame.setContentPane(contentPane);
+		Test test = new Test();
+		test.setVisible(true);
 	}
 
 }
