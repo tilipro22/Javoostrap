@@ -1,23 +1,29 @@
 package frame;
 
-import java.awt.Color;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
+import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
 import colors.ColorsDFT;
+import events.StaticEvent;
+import utils.PositionSum;
 
 public abstract class FrameDefault extends JFrame{
 
-	private static final Double PERCENTAGE_DFT = 7.0;
+	private static final Double PERCENTAGE_DFT = 5.0;
 	private static final long serialVersionUID = 1L;
+	
+	private JFrame frameActual = this;
 	
 	private JPanel contentPane;
 	
-	private JLabel lblTitleB;
+	private JLabel lblTitleB, lblMinB, lblExitB;
 	
 	public FrameDefault() {
 		setUndecorated(true);
@@ -37,22 +43,73 @@ public abstract class FrameDefault extends JFrame{
 	}
 	
 	private void setBarra(String title, Double percentage) {
+		
+		/* Title */
 		lblTitleB = new JLabel(title);
 		lblTitleB.setOpaque(false);
-		lblTitleB.setBounds(0, 0, (int) (70*getWidth())/100, (int) (percentage*getHeight())/100);
-		lblTitleB.setBorder(new LineBorder(Color.white));
+		lblTitleB.setBounds(0, 0, (int) (90*getWidth())/100, (int) (percentage*getHeight())/100);
+		lblTitleB.setBorder(new MatteBorder(0, 0, 1, 1, ColorsDFT.COLOR_B_WHITE));
+		lblTitleB.setForeground(ColorsDFT.COLOR_B_WHITE);
 		
 		contentPane.add(lblTitleB);
+		
+		/* Minimizar */
+		lblMinB = new JLabel("-");
+		lblMinB.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				StaticEvent.eventMinimizar(frameActual);
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				StaticEvent.eventLblMinimizarEntry(lblMinB);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				StaticEvent.eventLblMinimizarExit(lblMinB);
+			}
+			
+		});
+		lblMinB.setOpaque(false);
+		lblMinB.setBounds(PositionSum.getSumPositionX(lblTitleB), 0, (int) (5*getWidth())/100, (int) (percentage*getHeight())/100);
+		lblMinB.setBorder(new MatteBorder(0, 1, 1, 1, ColorsDFT.COLOR_B_WHITE));
+		lblMinB.setForeground(ColorsDFT.COLOR_B_WHITE);
+		lblMinB.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		contentPane.add(lblMinB);
+		
+		/* Cerrar */
+		lblExitB = new JLabel("x");
+		lblExitB.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				StaticEvent.eventCerrar(frameActual);
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				StaticEvent.eventLblCerrarEntry(lblExitB);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				StaticEvent.eventLblCerrarExit(lblExitB);
+			}
+			
+		});
+		lblExitB.setOpaque(false);
+		lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (5*getWidth())/100, (int) (percentage*getHeight())/100);
+		lblExitB.setBorder(new MatteBorder(0, 1, 1, 0, ColorsDFT.COLOR_B_WHITE));
+		lblExitB.setForeground(ColorsDFT.COLOR_B_WHITE);
+		lblExitB.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		contentPane.add(lblExitB);
 		
 		System.out.println((int) (percentage*getHeight())/100);
 		
 	}
-	
-	/*
-	 	lblTitulo.setBorder(new MatteBorder(2, 2, 0, 0, Color.CYAN));
-		lblTitulo.setHorizontalAlignment(SwingConstants.LEFT);
-		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblTitulo.setForeground(Color.WHITE);
-		lblTitulo.setBounds(0, 0, getWidth()-50, ALTURABF_DEFAULT);
-	 */
 }
