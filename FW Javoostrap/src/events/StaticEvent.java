@@ -4,7 +4,6 @@ import java.awt.Frame;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 
-import javax.naming.InitialContext;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -54,7 +53,23 @@ public class StaticEvent {
 	
 	/* Frame Deslizable */
 	
-	public static void eventDeslizablePresionado(MouseEvent e) {
+	public static void eventSetPoint (JFrame frame, MouseEvent e) {
 		initialClick = e.getPoint();
+		frame.getComponentAt(initialClick);
+	}
+	
+	public static void eventFramePositionChange (JFrame frame, MouseEvent e) {
+		if (initialClick == null)
+			initialClick = new Point(frame.getX(), frame.getY());
+		
+		int thisX = frame.getLocation().x;
+		int thisY = frame.getLocation().y;
+		
+		int xMoved = ((thisX + e.getX()) - (thisX + initialClick.x));
+		int yMoved = ((thisY + e.getY()) - (thisY + initialClick.y));
+		
+		int x = thisX + xMoved;
+		int y = thisY + yMoved;
+		frame.setLocation(x, y);
 	}
 }
