@@ -9,14 +9,20 @@ public class Test extends FrameDefault{
 	public static void main(String[] args) {
 		
 		
-		int ancho = 200, alto = 200;
+		int ancho = 850, alto = 300;
+
+		/*Test test = new Test();
+		test.setVisible(true);
+
+		test.setTitle("Prueba " + ancho + "x" + alto);
+		test.setSize(ancho, alto);*/
 		for (int i = 1; i <= 5; i++) {
 			Test test = new Test();
 			test.setVisible(true);
-			
-			test.setTitle("Prueba " + i);
+
+			test.setTitle("Prueba " + ancho + "x" + alto);
 			test.setSize(ancho, alto);
-			
+
 			ancho+=100;
 			alto+=100;
 		}

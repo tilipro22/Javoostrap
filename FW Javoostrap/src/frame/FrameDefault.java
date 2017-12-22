@@ -27,8 +27,8 @@ public abstract class FrameDefault extends JFrame{
 	private static final int PERCENTAGE_650 = 6;
 	private static final int PERCENTAGE_750 = 5;
 	private static final int PERCENTAGE_950 = 4;
-	private static final int PERCENTAGE_1250 = 2;
-	private static final int PERCENTAGE_1920 = 1;
+	private static final int PERCENTAGE_1250 = 3;
+	private static final int PERCENTAGE_1920 = 2;
 	// 750, 950, 1250, 1920
 	
 	private static final long serialVersionUID = 1L;
@@ -147,37 +147,37 @@ public abstract class FrameDefault extends JFrame{
 		if (getWidth() <= 350) { 
 			lblTitleB.setBounds(0, 0, (int) (80*getWidth())/100, 25);
 			lblMinB.setBounds(PositionSum.getSumPositionX(lblTitleB), 0, (int) (PERCENTAGE_350*getWidth())/100, 25);
-			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (10*getWidth())/100, 25);
+			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (PERCENTAGE_350*getWidth())/100, 25);
 		}
 		else if (getWidth() <= 550) {
 			lblTitleB.setBounds(0, 0, (int) (86*getWidth())/100, 25);
 			lblMinB.setBounds(PositionSum.getSumPositionX(lblTitleB), 0, (int) (PERCENTAGE_550*getWidth())/100, 25);
-			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (7*getWidth())/100, 25);
+			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (PERCENTAGE_550*getWidth())/100, 25);
 		}
 		else if (getWidth() <= 650) {
 			lblTitleB.setBounds(0, 0, (int) (88*getWidth())/100, (int) 30);
 			lblMinB.setBounds(PositionSum.getSumPositionX(lblTitleB), 0, (int) (PERCENTAGE_650*getWidth())/100, 30);
-			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (6*getWidth())/100, 30);
+			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (PERCENTAGE_650*getWidth())/100, 30);
 		} 
 		else if (getWidth() <= 750){
 			lblTitleB.setBounds(0, 0, (int) (90*getWidth())/100, (int) 30);
 			lblMinB.setBounds(PositionSum.getSumPositionX(lblTitleB), 0, (int) (PERCENTAGE_750*getWidth())/100, 30);
-			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (5*getWidth())/100, 30);
+			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (PERCENTAGE_750*getWidth())/100, 30);
 		}
 		else if (getWidth() <= 950) {
 			lblTitleB.setBounds(0, 0, (int) (92*getWidth())/100, (int) 30);
 			lblMinB.setBounds(PositionSum.getSumPositionX(lblTitleB), 0, (int) (PERCENTAGE_950*getWidth())/100, 30);
-			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (4*getWidth())/100, 30);
+			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (PERCENTAGE_950*getWidth())/100, 30);
 		}
 		else if (getWidth() <= 1250) {
 			lblTitleB.setBounds(0, 0, (int) (94*getWidth())/100, (int) 30);
 			lblMinB.setBounds(PositionSum.getSumPositionX(lblTitleB), 0, (int) (PERCENTAGE_1250*getWidth())/100, 30);
-			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (3*getWidth())/100, 30);
+			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (PERCENTAGE_1250*getWidth())/100, 30);
 		}
 		else if (getWidth() <= 1920) {
 			lblTitleB.setBounds(0, 0, (int) (96*getWidth())/100, (int) 30);
 			lblMinB.setBounds(PositionSum.getSumPositionX(lblTitleB), 0, (int) (PERCENTAGE_1920*getWidth())/100, 30);
-			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (2*getWidth())/100, 30);
+			lblExitB.setBounds(PositionSum.getSumPositionX(lblMinB), 0, (int) (PERCENTAGE_1920*getWidth())/100, 30);
 		}
 		else {
 			lblTitleB.setBounds(0, 0, (int) (98*getWidth())/100, (int) 30);
